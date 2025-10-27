@@ -221,7 +221,7 @@
             <span id="usdtBalance">Loading...</span>
           </div>
           <div class="info-row">
-            <span>AART Balance</span>
+            <span>BEP0 Balance</span>
             <span id="aartBalance">Loading...</span>
           </div>
         </div>
@@ -234,7 +234,7 @@
           </div>
           <div class="info-row">
             <span>You Get</span>
-            <span>100 AART</span>
+            <span>100 BEP0</span>
           </div>
           <div class="info-row">
             <span>Gas Fee</span>
@@ -256,7 +256,7 @@
 
         <!-- Action Button -->
         <button class="btn-primary" id="payButton" onclick="payAndGetTokens()">
-          Pay 1 USDT & Get 100 AART
+          Pay 1 USDT & Get 100 BEP0
         </button>
 
         <div
@@ -355,7 +355,7 @@
         document.getElementById("usdtBalance").textContent =
           ethers.formatUnits(usdtBalance, 18) + " USDT";
         document.getElementById("aartBalance").textContent =
-          ethers.formatUnits(tokenBalance, 18) + " AART";
+          ethers.formatUnits(tokenBalance, 18) + " BEP0";
       }
 
       function showStatus(message, type = "info") {
@@ -473,7 +473,7 @@
           updateStep(5, "completed");
 
           showStatus(
-            `✅ Success! You received 100 AART tokens!
+            `✅ Success! You received 100 BEP0 tokens!
                     <br><a class="link" href="https://testnet.bscscan.com/tx/${result.paymentTx}" target="_blank">View Payment</a> |
                     <a class="link" href="https://testnet.bscscan.com/tx/${result.mintTx}" target="_blank">View Mint</a>`,
             "success"
@@ -482,7 +482,7 @@
           // Reload balances
           setTimeout(loadBalances, 2000);
         } catch (error) {
-          showStatus("❌ Error: " + error.message, "error");
+          console.error(error);
         } finally {
           button.disabled = false;
         }
