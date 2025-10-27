@@ -1,0 +1,77 @@
+# 🚂 Railway Environment Variables
+# Copy these EXACTLY into Railway dashboard
+
+# ========================================
+# FOR TESTNET (Start Here!)
+# ========================================
+NETWORK=testnet
+BSC_TESTNET_RPC_URL=https://weathered-side-haze.bsc-testnet.quiknode.pro/8d6f63932ca5583da9409799f676bed0dd86a727/
+RELAYER_PRIVATE_KEY=0x790143bdb7f15702a56aa39d7efe182274466a59cb23c57aacc56b68349f7fc6
+BEP0_RELAYER_ADDRESS=YOUR_TESTNET_CONTRACT_ADDRESS
+
+# ========================================
+# FOR MAINNET (When Ready for Production)
+# ========================================
+# NETWORK=mainnet
+# BSC_RPC_URL=https://fittest-billowing-rain.bsc.quiknode.pro/406fd7253b5c30402e56abbb209f16b2818db968/
+# RELAYER_PRIVATE_KEY=0x790143bdb7f15702a56aa39d7efe182274466a59cb23c57aacc56b68349f7fc6
+# BEP0_RELAYER_ADDRESS=YOUR_MAINNET_CONTRACT_ADDRESS
+
+# ========================================
+# HOW TO USE IN RAILWAY
+# ========================================
+
+# Method 1: RAW Editor (Fastest)
+# 1. Go to Railway dashboard
+# 2. Click on your service
+# 3. Click "Variables" tab
+# 4. Click "RAW Editor" button
+# 5. Paste everything above (after you deploy contract and get address)
+# 6. Update BEP0_RELAYER_ADDRESS with your deployed contract
+# 7. Click Save
+
+# Method 2: One by one
+# Add each variable individually in Railway dashboard
+
+# ========================================
+# DEPLOYMENT STEPS
+# ========================================
+
+# Step 1: Fund your wallet
+# Go to: https://testnet.bnbchain.org/faucet-smart
+# Address: 0xf9909beA4c20A9d44e053122fcEd2A5A68F87Fc9
+
+# Step 2: Deploy contract
+# In bep0-complete directory:
+# ./deploy.sh
+# (or manually: npx tsx scripts/deploy-relayer-v2.ts)
+
+# Step 3: Get contract address from deployment output
+# Copy it, e.g.: 0x123abc...
+
+# Step 4: Update BEP0_RELAYER_ADDRESS above with your contract address
+
+# Step 5: Push to GitHub
+# cd bep0-facilitator
+# git init
+# git add .
+# git commit -m "BEP0 facilitator"
+# git remote add origin https://github.com/YOUR_USERNAME/bep0-facilitator.git
+# git push -u origin main
+
+# Step 6: Deploy to Railway
+# - Go to railway.app/new
+# - Deploy from GitHub repo
+# - Select your bep0-facilitator repo
+# - Add these variables in Railway
+# - Generate domain
+# - Done!
+
+# ========================================
+# YOUR CONFIGURATION SUMMARY
+# ========================================
+
+# Network: BSC Testnet (Chain ID 97)
+# RPC: weathered-side-haze.bsc-testnet.quiknode.pro
+# Relayer Address: 0xf9909beA4c20A9d44e053122fcEd2A5A68F87Fc9
+# Explorer: https://testnet.bscscan.com/address/0xf9909beA4c20A9d44e053122fcEd2A5A68F87Fc9
